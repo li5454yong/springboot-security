@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>没有权限</title>
+    </head>
+    <body>
+        <h1 th:inline="text">抱歉!</h1>
+        <p>您没有权限访问该页面</p>
+        <p><a th:href="@{/hellouser}">前往普通用户界面</a></p>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="登出"/>
+        </form>
+    </body>
+</html>

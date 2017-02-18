@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_hader" th:content="${_csrf.headerName}"/>
+    <title>Hello World!</title>
+    <script th:src="@{/js/jquery.min.js}" type="text/javascript"></script>
+</head>
+
+<body>
+
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+
+<!--<form th:action="@{/logout}" method="post">
+
+    <input type="submit" value="Sign Out"/>-->
+
+<!--<form th:action="@{/admin}" method="post">
+    <input th:type="submit" th:value="前往管理员页面"/>
+
+</form>-->
+<!--<a th:href="@{/admin}">前往管理员用户页面</a>-->
+<input th:type="submit" onclick="testPost()" th:value="前往管理员页面"/>
+</body>
+<script>
+    function testPost() {
+        var token = $('meta[name="_csrf"]').attr("content");
+        var header = $('meta[name="_csrf_hader"]').attr("content");
+        //alert(token)
+        $(document).ajaxSend(function(e,xhr,opt){
+            xhr.setRequestHeader(header,token);
+        });
+        $.ajax({
+            url:"/admin",
+            type:'POST',
+
+            success:function (data) {
+
+            }
+        });
+    }
+</script>
+</html>

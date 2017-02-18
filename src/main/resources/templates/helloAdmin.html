@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!--<meta name="_csrf" th:content="${_csrf.token}"/>
+        <meta name="_csrf_hader" th:content="${_csrf.headerName}"/>-->
+        <title>Hello World!</title>
+    </head>
+    <body>
+        <h1 th:inline="text">您好， [[${#httpServletRequest.remoteUser}]]!</h1>
+        <p><a th:href="@{/hellouser}">前往普通用户界面</a></p>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="登出"/>
+        </form>
+    </body>
+</html>
