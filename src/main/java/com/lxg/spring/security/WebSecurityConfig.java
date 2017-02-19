@@ -18,9 +18,6 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 @EnableGlobalMethodSecurity(prePostEnabled = true)//开启security注解
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Autowired
-//    private DataSource dataSource;
-
     @Bean
     @Override
     protected AuthenticationManager authenticationManager() throws Exception {

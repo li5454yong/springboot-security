@@ -24,9 +24,7 @@ public class IndexController {
 
     @PreAuthorize("hasRole('user')")
     @RequestMapping(value = "/admin",method = RequestMethod.POST)
-    @ResponseBody
     public String toAdmin(){
-        sUserService.findAll();
         return "helloAdmin";
     }
 
@@ -36,7 +34,6 @@ public class IndexController {
         return "hello";
 
     }
-
     @RequestMapping("/login")
     public String login(){
         return "login";

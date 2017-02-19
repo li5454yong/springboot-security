@@ -15,20 +15,19 @@
 
 <!--<form th:action="@{/logout}" method="post">
 
-    <input type="submit" value="Sign Out"/>-->
-
-<!--<form th:action="@{/admin}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<form th:action="@{/admin}" method="get">
     <input th:type="submit" th:value="前往管理员页面"/>
 
 </form>-->
-<!--<a th:href="@{/admin}">前往管理员用户页面</a>-->
+<a th:href="@{/admin}">前往管理员用户页面</a>
 <input th:type="submit" onclick="testPost()" th:value="前往管理员页面"/>
 </body>
 <script>
     function testPost() {
         var token = $('meta[name="_csrf"]').attr("content");
         var header = $('meta[name="_csrf_hader"]').attr("content");
-        //alert(token)
         $(document).ajaxSend(function(e,xhr,opt){
             xhr.setRequestHeader(header,token);
         });

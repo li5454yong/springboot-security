@@ -30,7 +30,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         // SecurityUser实现UserDetails并将SUser的Email映射为username
         SecurityUser securityUser = new SecurityUser(user);
-        //Collection<GrantedAuthority> authorities = securityUser.getAuthorities();
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
         authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         return securityUser; //code9
